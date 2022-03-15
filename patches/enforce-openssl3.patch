@@ -1,0 +1,13 @@
+Subject: Enforce OpenSSL3
+
+--- a/debian/control
++++ b/debian/control
+@@ -14,7 +14,7 @@ Build-Depends: debhelper (>= 13.1~),
+                libkrb5-dev | heimdal-dev,
+                libpam0g-dev | libpam-dev,
+                libselinux1-dev [linux-any],
+-               libssl-dev (>= 1.1.0g),
++               libssl-dev (>= 3.0.0),
+                libsystemd-dev [linux-any] | libelogind-dev [linux-any],
+                libwrap0-dev | libwrap-dev,
+                pkg-config,
