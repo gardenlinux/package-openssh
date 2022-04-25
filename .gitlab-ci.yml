@@ -4,3 +4,4 @@ include:
 
 variables:
   SOURCE_NAME: openssh
+  BUILD_ARCH_ALL: 'true'
