@@ -4,4 +4,22 @@ include:
 
 variables:
   SOURCE_NAME: openssh
-  BUILD_ARCH_ALL: 'true'
+  ORIG_TAR: "openssh_9.3p2.orig.tar.gz"
+  BUILD_IMAGE: "ghcr.io/vincinator/gl-pkg-build:934.10"
+  BUILD_SOURCES_LIST_GARDENLINUX: "yes"
+  BUILD_USE_GARDENLINUX_REPO: "yes"
+  BUILD_DIST_GARDENLINUX: "934.10"
+  BUILD_SOURCES_LIST_GARDENLINUX: |
+    deb http://repo.gardenlinux.io/gardenlinux 934.10 main
+  BUILD_SOURCES_LIST: |
+    deb [check-valid-until=no] https://snapshot.debian.org/archive/debian/20221024T000000Z/ bookworm main
+    deb [check-valid-until=no] http://snapshot.debian.org/archive/debian-security/20221024T000000Z bookworm-security main
+    deb [check-valid-until=no] http://snapshot.debian.org/archive/debian/20221024T000000Z bookworm-updates main
+  BUILD_GARDENLINUX_PREFERENCES: |
+    Package: libssl-dev
+    Pin: release o=Gardenlinux
+    Pin-Priority: 700
+
+    Package: libssl3
+    Pin: release o=Gardenlinux
+    Pin-Priority: 700
