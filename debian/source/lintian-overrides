@@ -1,2 +1,0 @@
-# openssh-server/password-authentication is preseeding-only, at least for now.
-openssh source: untranslatable-debconf-templates [debian/openssh-server.templates:20]
