@@ -1,3 +1,4 @@
 apt_src openssh
+import_upstream_patches
 apply_patches
-version_suffix=gardenlinux0
+version_suffix=gardenlinux1
