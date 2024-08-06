@@ -1,7 +1,7 @@
 diff --color -Naur b/debian/control a/debian/control
 --- b/debian/control	2024-05-07 12:24:10.531180124 +0200
 +++ a/debian/control	2024-05-07 12:25:07.303260447 +0200
-@@ -14,7 +14,7 @@
+@@ -15,7 +15,7 @@
                 libkrb5-dev | heimdal-dev,
                 libpam0g-dev | libpam-dev,
                 libselinux1-dev [linux-any],
