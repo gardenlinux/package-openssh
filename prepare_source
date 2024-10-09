@@ -1,3 +1,8 @@
-git_src --branch debian/1%9.9p1-1 https://salsa.debian.org/ssh-team/openssh
+git_src --branch debian/1%9.8p1-8 https://salsa.debian.org/ssh-team/openssh
+
+# Patches are already applied in the salsa repo, avoid build failure when patches would be applied again
+rm $dir/src/debian/patches/series
+
 apply_patches
+
 version_suffix=gl0~bp1443
