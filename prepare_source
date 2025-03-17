@@ -1,2 +1,4 @@
-apt_src openssh
+version=1:9.9p2-1
+version_suffix=gl0~bp1592
+git_src -b "debian/1%9.9p2-1" https://salsa.debian.org/ssh-team/openssh 
 apply_patches
