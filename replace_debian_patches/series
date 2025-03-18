@@ -1,0 +1,7 @@
+ssh-vulnkey-compat.patch
+authorized-keys-man-symlink.patch
+ssh-argv0.patch
+doc-hash-tab-completion.patch
+ssh-agent-setgid.patch
+gnome-ssh-askpass2-icon.patch
+skip-utimensat-test-on-zfs.patch

@@ -1,0 +1,29 @@
+From 3cafa55eaaa80874d1c2741dc9a71a486fae4923 Mon Sep 17 00:00:00 2001
+From: Colin Watson <cjwatson@debian.org>
+Date: Sun, 9 Feb 2014 16:10:10 +0000
+Subject: ssh(1): Refer to ssh-argv0(1)
+
+Old versions of OpenSSH (up to 2.5 or thereabouts) allowed creating symlinks
+to ssh with the name of the host you want to connect to.  Debian ships an
+ssh-argv0 script restoring this feature; this patch refers to its manual
+page from ssh(1).
+
+Bug-Debian: http://bugs.debian.org/111341
+Forwarded: not-needed
+Last-Update: 2013-09-14
+
+Patch-Name: ssh-argv0.patch
+---
+ ssh.1 | 1 +
+ 1 file changed, 1 insertion(+)
+
+--- a/ssh.1
++++ b/ssh.1
+@@ -1668,6 +1668,7 @@
+ .It Pa /etc/ssh/ssh_known_hosts
+ Systemwide list of known host keys.
+ This file should be prepared by the
++.Xr ssh-argv0 1 ,
+ system administrator to contain the public host keys of all machines in the
+ organization.
+ It should be world-readable.

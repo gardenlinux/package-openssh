@@ -1,0 +1,38 @@
+From dc1ae0446f5fd348597bfc2c9d0a18da7758070f Mon Sep 17 00:00:00 2001
+From: Colin Watson <cjwatson@ubuntu.com>
+Date: Sun, 9 Feb 2014 16:09:50 +0000
+Subject: Accept obsolete ssh-vulnkey configuration options
+
+These options were used as part of Debian's response to CVE-2008-0166.
+Nearly six years later, we no longer need to continue carrying the bulk
+of that patch, but we do need to avoid failing when the associated
+configuration options are still present.
+
+Last-Update: 2014-02-09
+
+Patch-Name: ssh-vulnkey-compat.patch
+---
+ readconf.c | 1 +
+ servconf.c | 1 +
+ 2 files changed, 2 insertions(+)
+
+--- a/readconf.c
++++ b/readconf.c
+@@ -197,6 +197,7 @@
+ 	{ "cipher", oDeprecated },
+ 	{ "fallbacktorsh", oDeprecated },
+ 	{ "globalknownhostsfile2", oDeprecated },
++	{ "useblacklistedkeys", oDeprecated },
+ 	{ "rhostsauthentication", oDeprecated },
+ 	{ "useblacklistedkeys", oDeprecated },
+ 	{ "userknownhostsfile2", oDeprecated },
+--- a/servconf.c
++++ b/servconf.c
+@@ -698,6 +698,7 @@
+ 	{ "ignorerhosts", sIgnoreRhosts, SSHCFG_ALL },
+ 	{ "ignoreuserknownhosts", sIgnoreUserKnownHosts, SSHCFG_GLOBAL },
+ 	{ "x11forwarding", sX11Forwarding, SSHCFG_ALL },
++	{ "permitblacklistedkeys", sDeprecated, SSHCFG_GLOBAL },
+ 	{ "x11displayoffset", sX11DisplayOffset, SSHCFG_ALL },
+ 	{ "x11uselocalhost", sX11UseLocalhost, SSHCFG_ALL },
+ 	{ "xauthlocation", sXAuthLocation, SSHCFG_GLOBAL },
