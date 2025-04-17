@@ -1,5 +1,5 @@
-version=1:9.9p2-1
-git_src -b "debian/1%9.9p2-1" https://salsa.debian.org/ssh-team/openssh 
+version=1:10.0p1-2
+git_src -b "debian/1%10.0p1-2" https://salsa.debian.org/ssh-team/openssh
 
 rm -rf $dir/src/debian/patches
 # cp -r replace_debian_patches $dir/src/debian/patches
