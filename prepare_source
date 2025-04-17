@@ -5,6 +5,7 @@ rm -rf $dir/src/debian/patches
 # cp -r replace_debian_patches $dir/src/debian/patches
 
 apply_patches
-version_suffix=gl1~bp1592
+import_upstream_patches
+version_suffix=gl2~bp1592
 
 
