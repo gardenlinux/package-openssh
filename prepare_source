@@ -1,2 +1,8 @@
-apt_src openssh
+version_orig=1:10.2p1-3
+version_suffix=gl0+bp1877
+git_src -b "debian/1%10.2p1-3" "https://salsa.debian.org/ssh-team/openssh.git"
+
+# The patches are already applied on salsa
+rm $dir/src/debian/patches/series
+
 apply_patches
