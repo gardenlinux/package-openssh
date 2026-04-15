@@ -1,2 +1,2 @@
-apt_src openssh
+git_src -b debian/1%10.3p1-1 https://salsa.debian.org/ssh-team/openssh.git
 apply_patches
