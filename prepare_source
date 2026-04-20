@@ -1,2 +1,21 @@
-apt_src openssh
+(
+	debian_repo=https://salsa.debian.org/ssh-team/openssh.git
+	debian_ref="debian/1%10.3p1-1"
+
+	tmp_dir="$(mktemp -d)"
+	trap 'cd / && rm -rf "$tmp_dir"' EXIT
+	cd "$tmp_dir"
+
+	git clone --depth 1 --branch "$debian_ref" "$debian_repo" ssh
+	cd ssh
+
+	uscan -v --download-current-version
+
+	git clean -fdx
+
+	auto_decompress ../*.orig.tar.* | tee "$dir/orig.tar" | tar --extract --strip-components 1 --directory "$dir/src"
+	cp -r debian "$dir/src/"
+)
+
+apply_patches
 apply_patches
