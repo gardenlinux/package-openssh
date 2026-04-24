@@ -1,34 +1,8 @@
-# problem was / is: debian source doesn't provide the fixed package for https://security-tracker.debian.org/tracker/CVE-2026-35414, only for sid
-# source is then taken from salsa, but they keep their source code in a bit of a non straight forward way: https://wiki.debian.org/PackagingWithGit/GitDpm
-# as a result, the debian patches are already in the source code, but they also still exist in debian/patches.
-# one solution to that would be to keep as is and just not apply patches, another would be to reverse the patches before re-applying them
-# (this in principle would work, but not in a linear, atomar fashion, parts of one patch are already part of a second patch etc.)
-# 
-# what this now does is:
-#    check out the code from salsa to folder ~/ssh
-#    use uscan to determine the software version and
-#    download the source code of the package in the software version to ~/src
-#    copy the debian folder over from ~/ssh to ~/src
-#    then apply the patches within the debian folder
+version_orig=1:10.3p1-1
+version_suffix=gl0~bp2150
+git_src -b "debian/1%10.3p1-1" "https://salsa.debian.org/ssh-team/openssh.git"
 
-
-(
-	debian_repo=https://salsa.debian.org/ssh-team/openssh.git
-	debian_ref="debian/1%10.3p1-1"
-
-	tmp_dir="$(mktemp -d)"
-	trap 'cd / && rm -rf "$tmp_dir"' EXIT
-	cd "$tmp_dir"
-
-	git clone --depth 1 --branch "$debian_ref" "$debian_repo" ssh
-	cd ssh
-
-	uscan -v --download-current-version
-
-	git clean -fdx
-
-	auto_decompress ../*.orig.tar.* | tee "$dir/orig.tar" | tar --extract --strip-components 1 --directory "$dir/src"
-	cp -r debian "$dir/src/"
-)
+# The patches are already applied on salsa
+rm $dir/src/debian/patches/series
 
 apply_patches
