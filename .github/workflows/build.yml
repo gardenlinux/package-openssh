@@ -8,3 +8,5 @@ jobs:
     uses: gardenlinux/package-build/.github/workflows/build.yml@main
     with:
       release: ${{ github.ref == 'refs/heads/main' }}
+      build_dep: |
+        gardenlinux/package-zlib 1.3.dfsg+really1.3.2-3gl0+bp2150
