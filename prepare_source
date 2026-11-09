@@ -1,4 +1,4 @@
-version_orig=10.6p1
+version_orig=10.6p2
 debian_version="1%${version_orig}-1"
 version=1:${version_orig}-1
 version_suffix=gl0~bp2150
